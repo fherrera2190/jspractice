@@ -1,0 +1,53 @@
+const createUser = ({ firstName, lastName, email }) => ({
+    firstName,
+    lastName,
+    email,
+    fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    },
+});
+
+const user1 = createUser({
+    firstName: "John",
+    lastName: "Doe",
+    email: "john.doe@example.com"
+});
+
+console.log(user1.fullName()); // Output: John Doe
+
+
+const createObjectFromArray = ([key, value]) => ({
+    [key]: value,
+});
+
+const nemesis = createObjectFromArray(["name", "Nemesis"]); // { name: "John" }
+
+const nemesis3 = nemesis;
+const nemesis2 = createObjectFromArray(["name", "Nemesis"]); // { name: "Nemesis" }
+
+console.log(nemesis === nemesis2)
+console.log(nemesis === nemesis3)
+
+class User {
+    constructor(firstName, lastName, email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
+
+    fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+}
+
+const user3 = new User({
+    firstName: "John",
+    lastName: "Doe",
+    email: "john@doe.com",
+});
+
+const user2 = new User({
+    firstName: "Jane",
+    lastName: "Doe",
+    email: "jane@doe.com",
+});
